@@ -2,10 +2,14 @@
   "name": "form-tryout",
   "version": "1.0.0",
   "license": "MIT",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "nodemon": "^2.0.15"
   }
 }

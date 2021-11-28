@@ -5,27 +5,24 @@ import { formInput } from '../../templates/formInput';
 const Pizza = () => {
   return (
     <div>
-      <label>Numbe of slices</label>
-      <div>
-        <Field
-          name="no_of_slices"
-          component={formInput}
-          type="number"
-          min="1"
-          required
-        />
-      </div>
-      <label>Size</label>
-      <div>
-        <Field
-          name="diameter"
-          component={formInput}
-          type="number"
-          min="1"
-          step="0.1"
-          required
-        />
-      </div>
+      <Field
+        label="Number of slices"
+        name="no_of_slices"
+        component={formInput}
+        type="number"
+        min={1}
+        required
+      />
+
+      <Field
+        label="Diameter"
+        name="diameter"
+        component={formInput}
+        type="number"
+        min={1}
+        step={0.1}
+        required
+      />
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Button } from '@mui/material';
-import styles from './Form.module.scss';
-import sendData from './sendData';
+import { Button, Paper, Container } from '@mui/material';
+import { formInput } from '../templates/formInput';
 import Pizza from './conditionals/Pizza';
 import Soup from './conditionals/Soup';
 import Sandwich from './conditionals/Sandwich';
-import { formInput } from '../templates/formInput';
 import validate from '../utils/validations';
+import sendData from './sendData';
+import styles from './Form.module.scss';
 
 class DishForm extends Component {
   constructor(props) {
@@ -34,40 +34,51 @@ class DishForm extends Component {
   render() {
     const { handleSubmit, dishType } = this.props;
     return (
-      <form className={styles.container} onSubmit={handleSubmit(this.submit)}>
-        <Field
-          name="name"
-          component={formInput}
-          type="text"
-          placeholder="Name"
-          label="Dish name"
-        />
+      <Container className={styles.container} maxWidth="sm" fixed>
+        <Paper elevation={24}>
+          <form
+            className={styles.formContainer}
+            onSubmit={handleSubmit(this.submit)}
+          >
+            <Field
+              label="Dish name"
+              name="name"
+              component={formInput}
+              type="text"
+              placeholder="Dish name"
+            />
+            <br />
+            <Field
+              label="Prep time"
+              name="preparation_time"
+              component={formInput}
+              type="time"
+              step="1"
+              required
+            />
+            <br />
+            <Field
+              label="Dish type"
+              name="type"
+              component={formInput}
+              type="select"
+              required
+              onChange={this.changedType}
+            />
+            <br />
+            {dishType === 'pizza' && <Pizza />}
+            <br />
+            {dishType === 'soup' && <Soup />}
+            <br />
+            {dishType === 'sandwich' && <Sandwich />}
+            <br />
 
-        <Field
-          name="preparation_time"
-          component={formInput}
-          type="time"
-          step="1"
-          placeholder="Prep time"
-          required
-        />
-
-        <Field
-          name="type"
-          component={formInput}
-          type="select"
-          required
-          onChange={this.changedType}
-        />
-
-        {dishType === 'pizza' && <Pizza />}
-        {dishType === 'soup' && <Soup />}
-        {dishType === 'sandwich' && <Sandwich />}
-
-        <Button type="submit" variant="contained">
-          Submit your Dish
-        </Button>
-      </form>
+            <Button type="submit" variant="contained">
+              Submit your Dish
+            </Button>
+          </form>
+        </Paper>
+      </Container>
     );
   }
 }

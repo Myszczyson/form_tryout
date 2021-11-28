@@ -1,7 +1,13 @@
 .container {
+  padding: 5% 0 0 0;
+}
+
+.formContainer {
+  height: 550px;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  padding: 50px 0;
 }

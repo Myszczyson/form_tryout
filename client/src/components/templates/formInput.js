@@ -1,4 +1,5 @@
-import { Select, TextField, MenuItem } from '@mui/material';
+import { Select, TextField, MenuItem, InputLabel } from '@mui/material';
+import styles from './formInput.module.scss';
 
 export const formInput = ({
   type,
@@ -7,61 +8,51 @@ export const formInput = ({
   min,
   max,
   step,
+  pattern,
   meta: { touched, error },
 }) => {
   switch (type) {
     case 'range':
       return (
-        <div>
+        <div className={styles.inputContainer}>
+          <InputLabel id={`${label}-id`}>{label}</InputLabel>
           <input
             {...input}
-            label={label}
+            labelid={`${label}-id`}
             type={type}
             min={min}
             max={max}
             required
           />
-          {touched && error && <span>{error}</span>}
+          {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );
     case 'select':
       return (
-        <div>
-          <Select {...input} label={label} displayEmpty>
+        <div className={styles.inputContainer}>
+          <InputLabel id={`${label}-id`}>{label}</InputLabel>
+          <Select {...input} labelid={`${label}-id`} displayEmpty>
             <MenuItem value="pizza"> Pizza </MenuItem>
             <MenuItem value="soup"> Soup </MenuItem>
             <MenuItem value="sandwich"> Sandwich </MenuItem>
           </Select>
-          {touched && error && <span>{error}</span>}
-        </div>
-      );
-    case 'time':
-      return (
-        <div>
-          <input
-            {...input}
-            label={label}
-            type={type}
-            min={min}
-            max={max}
-            step={step}
-            required
-          />
-          {touched && error && <span>{error}</span>}
+          {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );
     default:
       return (
-        <div>
+        <div className={styles.inputContainer}>
+          <InputLabel id={`${label}-id`}>{label}</InputLabel>
           <TextField
             {...input}
+            labelid={`${label}-id`}
             variant="standard"
             type={type}
-            step={step}
-            placeholder={label}
+            pattern={pattern}
+            inputProps={{ min: min, max: max, step: step }}
             required
           />
-          {touched && error && <span>{error}</span>}
+          {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );
   }

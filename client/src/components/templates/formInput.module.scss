@@ -1,0 +1,49 @@
+.inputContainer {
+  position: relative;
+  input {
+    width: 100%;
+    max-width: 150px;
+    min-width: 90px;
+  }
+
+  input[type='range'] {
+    overflow: hidden;
+    -webkit-appearance: none;
+    background-color: #3ed65f;
+    border-radius: 100px;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: black;
+    margin-top: -1px;
+    border-radius: 100px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    background: black;
+    box-shadow: -80px 0 0 80px #d63e3e;
+  }
+
+  .errorMsg {
+    position: absolute;
+    color: crimson;
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 510px) {
+  .inputContainer {
+    display: flex;
+
+    flex-direction: column;
+    .errorMsg {
+      position: static !important;
+    }
+  }
+}

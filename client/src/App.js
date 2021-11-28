@@ -1,12 +1,9 @@
 import React from 'react';
+import './styles/global.scss';
 import Form from './components/form/FormContainer';
 
 const App = () => {
-  return (
-    <div>
-      <Form />
-    </div>
-  );
+  return <Form />;
 };
 
 export default App;
