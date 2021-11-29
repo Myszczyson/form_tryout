@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { formInput } from '../../templates/formInput';
+import { stringToNum } from '../../utils/stringToNum';
 
 const Pizza = () => {
   return (
@@ -11,6 +12,7 @@ const Pizza = () => {
         component={formInput}
         type="number"
         min={1}
+        parse={stringToNum}
         required
       />
 
@@ -21,6 +23,7 @@ const Pizza = () => {
         type="number"
         min={1}
         step={0.1}
+        parse={stringToNum}
         required
       />
     </div>

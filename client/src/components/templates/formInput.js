@@ -16,14 +16,17 @@ export const formInput = ({
       return (
         <div className={styles.inputContainer}>
           <InputLabel id={`${label}-id`}>{label}</InputLabel>
+
           <input
             {...input}
             labelid={`${label}-id`}
             type={type}
             min={min}
             max={max}
+            defaultValue={6}
             required
           />
+
           {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );
@@ -31,11 +34,13 @@ export const formInput = ({
       return (
         <div className={styles.inputContainer}>
           <InputLabel id={`${label}-id`}>{label}</InputLabel>
+
           <Select {...input} labelid={`${label}-id`} displayEmpty>
             <MenuItem value="pizza"> Pizza </MenuItem>
             <MenuItem value="soup"> Soup </MenuItem>
             <MenuItem value="sandwich"> Sandwich </MenuItem>
           </Select>
+
           {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );
@@ -43,6 +48,7 @@ export const formInput = ({
       return (
         <div className={styles.inputContainer}>
           <InputLabel id={`${label}-id`}>{label}</InputLabel>
+
           <TextField
             {...input}
             labelid={`${label}-id`}
@@ -52,6 +58,7 @@ export const formInput = ({
             inputProps={{ min: min, max: max, step: step }}
             required
           />
+
           {touched && error && <span className={styles.errorMsg}>{error}</span>}
         </div>
       );

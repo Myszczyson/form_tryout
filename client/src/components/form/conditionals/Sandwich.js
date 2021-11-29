@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import { formInput } from '../../templates/formInput';
+import { stringToNum } from '../../utils/stringToNum';
 
 const Sandwich = () => {
   return (
@@ -11,6 +12,7 @@ const Sandwich = () => {
         component={formInput}
         type="number"
         min={1}
+        parse={stringToNum}
         required
       />
     </div>

@@ -14,6 +14,4 @@ const mapStateToProps = (state) => ({
   slicesOfBread: selector(state, 'slices_of_bread'),
 });
 
-const mapDispatcherToProps = (dispatch) => ({});
-
-export default connect(mapStateToProps, mapDispatcherToProps)(Form);
+export default connect(mapStateToProps)(Form);

@@ -6,7 +6,7 @@ import Pizza from './conditionals/Pizza';
 import Soup from './conditionals/Soup';
 import Sandwich from './conditionals/Sandwich';
 import validate from '../utils/validations';
-import sendData from './sendData';
+import sendData from '../../redux/actions/sendData';
 import styles from './Form.module.scss';
 
 class DishForm extends Component {
@@ -47,7 +47,9 @@ class DishForm extends Component {
               type="text"
               placeholder="Dish name"
             />
+
             <br />
+
             <Field
               label="Prep time"
               name="preparation_time"
@@ -56,7 +58,9 @@ class DishForm extends Component {
               step="1"
               required
             />
+
             <br />
+
             <Field
               label="Dish type"
               name="type"
@@ -65,12 +69,19 @@ class DishForm extends Component {
               required
               onChange={this.changedType}
             />
+
             <br />
+
             {dishType === 'pizza' && <Pizza />}
+
             <br />
+
             {dishType === 'soup' && <Soup />}
+
             <br />
+
             {dishType === 'sandwich' && <Sandwich />}
+
             <br />
 
             <Button type="submit" variant="contained">

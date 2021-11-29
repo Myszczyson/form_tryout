@@ -29,7 +29,6 @@ export const validate = (formData) => {
       formData.spiciness_scale < 1 ||
       formData.spiciness_scale > 10)
   ) {
-    formData.spiciness_scale = '6';
     errors.no_of_slices = 'Number need to be between 1 and 10';
   } else if (formData.type === 'sandwich' && formData.slices_of_bread < 1) {
     errors.slices_of_bread = 'Number need to be above 1';
